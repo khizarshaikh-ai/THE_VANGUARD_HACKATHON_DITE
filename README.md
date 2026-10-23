@@ -58,10 +58,67 @@ Analyze: Return to the teacher panel, close the round, and click Reveal patterns
 
 If you prefer to set up the Python environment manually:
 
+=======
+# ClassPulse 🎓
+
+> **Hear the room. Not just the raised hands.**
+
+ClassPulse is an interactive, real-time classroom web application prototype. Teachers can launch instant questions, aggregate anonymous short responses, run machine-learning models to surface common misconceptions, inspect evidence, record reviews, and open follow-up rounds.
+
+---
+
+## 📌 Table of Contents
+
+- [Overview](#-overview)
+- [Quick Start](#-quick-start)
+- [Manual Setup](#-manual-setup)
+- [Analysis Modes](#-analysis-modes)
+  - [Local Machine Learning (Default)](#1-local-machine-learning-default)
+  - [Gemini AI Semantic Analysis (Optional)](#2-gemini-ai-semantic-analysis-optional)
+- [Key Features](#-key-features)
+- [System Architecture](#-system-architecture)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+  - [Cloud Hosting (Render / Railway)](#cloud-hosting-render--railway)
+  - [Docker Container](#docker-container)
+- [Security & Privacy](#-security--privacy)
+- [Demo Script & Submission](#-demo-script--submission)
+- [Acknowledgements](#-acknowledgements)
+
+---
+
+## 🔎 Overview
+
+ClassPulse solves the engagement gap in classroom settings by allowing friction-free, anonymous responses. Instead of relying only on students who raise their hands, teachers get a structured view of the whole room's understanding using built-in unsupervised machine learning and generative AI analysis.
+
+---
+
+## ⚡ Quick Start
+
+1. **Download Python:** Install **Python 3.13 or 3.14** from [python.org](https://www.python.org/downloads/).
+2. **Extract Archive:** Unzip the project folder (*do not run directly from inside a ZIP file*).
+3. **Run the Script:**
+   - **Windows:** Double-click `START_WINDOWS.bat`.
+   - **Mac / Linux:** Run `START_MAC.command` (or execute `zsh START_MAC.command` in Terminal).
+4. **Initial Configuration:** On first launch, required packages will auto-install and prompt for a private teacher password (*input is masked*).
+5. **Launch Application:** Open [`http://localhost:8765`](http://localhost:8765) in your web browser.
+6. **Try Sample Data:** Log in to **Teacher Studio** or select **Explore a Sample Class** to test with pre-loaded fictional responses.
+
+> ⚠️ **Note:** `localhost` is for local testing only and is not accessible externally.
+
+---
+
+## 🛠 Manual Setup
+
+If you prefer installing dependencies using standard terminal commands:
+
+```bash
+>>>>>>> 716e120 (Update README)
 # Clone the repository
 git clone https://github.com/your-username/classpulse.git
 cd classpulse
 
+<<<<<<< HEAD
 # Create and activate a virtual environment
 python -m venv .venv
 
@@ -72,10 +129,23 @@ source .venv/bin/activate
 # .venv\Scripts\activate.bat
 
 # Install dependencies and initialize application
+=======
+# Create and activate virtual environment
+python -m venv .venv
+
+# On Mac/Linux:
+source .venv/bin/activate
+
+# On Windows (Command Prompt):
+# .venv\Scripts\activate.bat
+
+# Install dependencies and setup instance
+>>>>>>> 716e120 (Update README)
 python -m pip install -r requirements.txt
 python setup.py
 python app.py
 
+<<<<<<< HEAD
 
 Tip: If python is not recognized, try python3 or py -3. Always use the activated environment's Python binary going forward.
 
@@ -157,11 +227,74 @@ Note: The app relies on Flask + Waitress + SQLite for low-latency server-rendere
 Execute the automated test suite covering authentication, CSRF validation, submission constraints, clustering logic, and API fail-safes:
 
 # Install development and testing dependencies
+=======
+---
+
+## 🧠 Analysis Modes
+
+ClassPulse supports two modes for response aggregation and pattern detection:
+
+### 1. Local Machine Learning (Default)
+- **Engine:** `scikit-learn` TF-IDF term extraction paired with a K-Means clustering model.
+- **Requirements:** None. Works offline without API keys.
+- **How it works:** Groups responses into up to 3 clusters based on keyword frequencies.
+- **Notes:** Local ML matches vocabulary patterns rather than underlying semantic logic. Teachers should inspect raw evidence before drawing conclusions.
+
+### 2. Gemini AI Semantic Analysis (Optional)
+- **Engine:** Google Gemini API (`generateContent`) with JSON schema enforcement.
+- **Requirements:** Requires setting `GEMINI_API_KEY` in environment variables.
+- **How it works:** Groups answers based on semantic understanding and underlying misconceptions.
+- **Data Safety:** Sends only question prompts, reference answers, response IDs, and answer text. Never transmits browser tokens or PII.
+
+---
+
+## ✨ Key Features
+
+- 📱 **Zero Installation for Students:** Fully responsive browser UI for desktop, tablet, and mobile.
+- 🔒 **Separated Interfaces:** Private authenticated Teacher Studio vs. public instant-join Student view.
+- 📊 **Real-time Analytics:** Up to 50 responses per round, supporting 5 sequential rounds per room.
+- 💪 **Confidence Indicators:** Tracks self-reported confidence separately from answer correctness.
+- 🖼️ **Projector Mode:** Clean, full-screen presentation layout (Press `Esc` to exit).
+- 💾 **Export Options:** Export complete room reports and analytics as JSON data.
+
+---
+
+## 🏗 System Architecture
+
+```text
+   ┌──────────────────┐           ┌──────────────────┐
+   │ Student Session  │           │  Teacher Studio  │
+   └────────┬─────────┘           └────────┬─────────┘
+            │                              │
+            └──────────────┬───────────────┘
+                           │ HTTP / JSON
+                           v
+     ┌──────────────────────────────────────────┐
+     │   Flask + Waitress Application Server   │
+     └────────────────────┬─────────────────────┘
+                          │
+          ┌───────────────┼───────────────┐
+          v               v               v
+  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+  │  SQLite DB   │ │   Local ML   │ │  Gemini API  │
+  │ (Data Store) │ │(scikit-learn)│ │  (Optional)  │
+  └──────────────┘ └──────────────┘ └──────────────┘
+```
+
+---
+
+## 🧪 Testing
+
+Run the automated test suite covering authentication, CSRF protections, input validation, and clustering reliability:
+
+```bash
+>>>>>>> 716e120 (Update README)
 python -m pip install -r requirements-dev.txt
 
 # Run pytest suite
 python -m pytest -q
 
+<<<<<<< HEAD
 
 Review past test logs in docs/TEST_RESULTS.txt.
 
@@ -231,3 +364,57 @@ Submission Checklist:
 🤝 Acknowledgements
 
 Built with ❤️ using Python, Flask, Waitress, scikit-learn, and the Google Gemini API.
+=======
+---
+
+## 🚀 Deployment
+
+### Cloud Hosting (Render / Railway)
+
+1. Push your code to a GitHub repository (ensure `.venv`, `instance/`, and credentials are listed in `.gitignore`).
+2. Create a new Python Web Service.
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `python app.py`
+3. Configure Environment Variables:
+   ```env
+   HOST=0.0.0.0
+   TEACHER_PASSWORD=YourSecurePassword
+   SECRET_KEY=YourRandomSecretKey
+   COOKIE_SECURE=1
+   GEMINI_API_KEY=YourApiKeyHere
+   ```
+4. Attach a persistent volume mapped to `CLASSPULSE_DATA` to keep SQLite data intact across redeploys.
+
+### Docker Container
+
+```bash
+# Build Image
+docker build -t classpulse .
+
+# Run Container
+docker run --rm -p 8765:8765 \
+  -e TEACHER_PASSWORD="YourPassword" \
+  -e SECRET_KEY="YourSecretKey" \
+  -v classpulse-data:/data \
+  classpulse
+```
+
+---
+
+## 🔒 Security & Privacy
+
+- **Minimal Data Collection:** No names, emails, or personal identifiers are requested from students.
+- **CSRF & Parameterized Queries:** Full protection against cross-site request forgery and SQL injection attacks.
+- **Hashed Credentials:** Password strings are hashed prior to storage in local instances.
+
+---
+
+## 🎥 Demo Script & Submission
+
+See [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) for a complete 3–5 minute presentation transcript and testing walkthrough.
+
+---
+
+## 🤝 Acknowledgements
+
+Developed with Python, Flask, Waitress, scikit-learn, and the Google Gemini API.

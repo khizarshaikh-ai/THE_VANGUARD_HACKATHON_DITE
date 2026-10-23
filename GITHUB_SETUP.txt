@@ -1,0 +1,41 @@
+CLASSPULSE - GITHUB SETUP FOR KHIZER
+No Codex plugin is needed. Use your browser and your own GitHub account.
+
+1. Extract the delivered ZIP. Keep an untouched clean copy for uploading.
+2. Sign in at https://github.com and open https://github.com/new.
+3. Name the repository classpulse. Choose Public. Leave the generated README,
+   licence and .gitignore options off: this package already has a README.
+4. Click Create repository, then the link to upload existing files.
+5. Open the extracted ClassPulse folder. Drag its CONTENTS into the upload area.
+   Upload app.py and README.md at the repository root, with static, templates,
+   docs and tests as folders. Do not upload only the ZIP or flatten the folders.
+6. Check the list. Never upload .venv, instance, .env, settings.json,
+   databases, API keys or passwords. The delivered clean ZIP excludes these.
+   Include .gitignore if your file browser shows hidden files.
+7. Enter a message such as 'ClassPulse hackathon project' and Commit changes.
+8. Open the repository link in an incognito/private window without signing in.
+   Confirm README.md, app.py, requirements.txt, static and templates are visible.
+9. Copy the repository URL for the submission form.
+
+PUBLIC APP LINK IS A SEPARATE STEP
+GitHub stores the code. Uploading code does not start this Python server.
+Use the public-deployment section in README.md and the supplied render.yaml
+or Dockerfile. Set passwords and API keys only in the hosting environment.
+GitHub Pages alone cannot run this Flask backend.
+
+DEADLINE
+For the reported 11 am Pakistan start and five-hour duration, the calculated
+cutoff is 4 pm Pakistan on 23 October 2026. Follow any official correction.
+Finish uploads and submission before the deadline. Do not commit, upload,
+edit files on GitHub or push code after the cutoff.
+
+QUICK CHECK
+[ ] Repository is Public and works in incognito.
+[ ] README renders and explains setup and actual AI mode.
+[ ] Source folders and requirements are present.
+[ ] No secrets, local database or virtual environment uploaded.
+[ ] Working public app URL and 3-5 minute Drive video are checked separately.
+
+Official instructions:
+https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository
+https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository

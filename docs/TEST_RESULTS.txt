@@ -1,0 +1,28 @@
+CLASSPULSE VERIFICATION
+Date: 23 October 2026
+Backend command: python -m pytest -q
+Result: 6 passed in 47.72 seconds.
+One harmless sandbox CPU-detection warning; tests completed successfully.
+
+Verified:
+- Full teacher/student two-round flow, analysis, review, export, deletion.
+- Student routes exclude teacher reference, responses and analysis.
+- Teacher routes and state-changing CSRF checks reject unauthorised requests.
+- Blank, oversized and invalid input rejected; duplicate and late answers rejected.
+- Fictional sample room labelled and local ML analysis counts cover all eight answers.
+- Missing Gemini key returns an error, not simulated provider output.
+- Missing, duplicated, unknown and invalid AI response IDs rejected.
+- Low-information and instruction-like student text handled as input data in Local ML.
+
+Not verified:
+- A live Gemini request (no API key configured).
+- Production hosting or public internet availability.
+- School-scale concurrency, educational accuracy or learning improvements.
+- Windows execution; Windows launcher supplied but tested on macOS only.
+
+Browser verification: PASSED on macOS, Chromium headless.
+Separate teacher and student browser sessions: login, sample class,
+answer submission, live count, close, local ML, original evidence,
+teacher review, follow-up round, second answer, mobile layout.
+No browser JavaScript errors. Six screenshots inspected during packaging.
+Live Gemini, Windows installation and production hosting remain unverified.

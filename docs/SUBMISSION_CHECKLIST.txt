@@ -1,0 +1,16 @@
+CLASSPULSE — FINAL DELIVERY CHECK
+[ ] App works at a public HTTPS URL (not localhost).
+[ ] Public repository contains all source and README, no keys/passwords/databases.
+[ ] Demo video is 3–5 minutes and accurately labels sample data and analysis mode.
+[ ] Video uploaded to Google Drive; Anyone with link / Viewer enabled.
+[ ] App, repository and video checked in incognito.
+[ ] Teacher demo access is available to judges without exposing real staff credentials.
+[ ] Registered team details and lead contact entered accurately.
+[ ] Organiser's form submitted before the official deadline; confirmation saved.
+[ ] No GitHub pushes after the deadline.
+
+Start reported by user: 11:00 am Hyderabad, Pakistan.
+Five-hour deadline calculated from that: 4:00 pm Pakistan (11:00 UTC), 23 October 2026.
+Confirm any organiser-announced change. Aim to finish links and submission by 3:40 pm Pakistan.
+
+This checklist is not a claim that the external steps have been completed.

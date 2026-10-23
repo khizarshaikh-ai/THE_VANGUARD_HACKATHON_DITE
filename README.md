@@ -40,7 +40,7 @@ Rather than building another generic "complaint chatbot," **CivicPulse** transfo
 ## 📦 Quick Start & Local Setup
 
 ### Prerequisites
-Make sure you have **Python 3.8+** installed on your system.
+Make sure you have **Python 3.14+** installed on your system.
 
 ### 1. Clone the Repository
 ```bash

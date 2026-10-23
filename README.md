@@ -1,4 +1,3 @@
-=======
 # ClassPulse 🎓
 
 > **Hear the room. Not just the raised hands.**
